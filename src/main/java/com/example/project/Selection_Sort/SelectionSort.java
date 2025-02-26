@@ -8,7 +8,21 @@ public class SelectionSort {
 
     // PART A. implementing selection sort
     public static int[] selectionSort(int[] elements) {
-       
+        int x = elements.length;
+
+        for (int i = 0; i < x - 1; i++){
+            int initialIdx = i;
+            for (int j = i + 1; j < x; j++){
+                if (elements[j] < elements[initialIdx]){
+                    initialIdx = j;
+                }
+            }
+            if (initialIdx != i){
+                int swap = elements[i];
+                elements[i] = elements[initialIdx];
+                elements[initialIdx] = swap;
+            }
+        }
         return elements;
     }
 
