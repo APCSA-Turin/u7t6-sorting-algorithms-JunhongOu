@@ -11,16 +11,16 @@ public class SelectionSort {
         int x = elements.length;
 
         for (int i = 0; i < x - 1; i++){
-            int initialIdx = i;
+            int idx = i;
             for (int j = i + 1; j < x; j++){
-                if (elements[j] < elements[initialIdx]){
-                    initialIdx = j;
+                if (elements[j] < elements[idx]){
+                    idx = j;
                 }
             }
-            if (initialIdx != i){
+            if (idx != i){
                 int swap = elements[i];
-                elements[i] = elements[initialIdx];
-                elements[initialIdx] = swap;
+                elements[i] = elements[idx];
+                elements[idx] = swap;
             }
         }
         return elements;
@@ -29,7 +29,21 @@ public class SelectionSort {
 
     // PART B. sorting a 1000-word list
     public static ArrayList<String> selectionSortWordList(ArrayList<String> words) {
-      
+        
+        for (int i = 0; i < words.size() - 1; i++){
+            int idx = i;
+            for (int j = i + 1; j < words.size(); j++){
+                if (words.get(j).compareTo(words.get(idx)) < 0){
+                    idx = j;
+                }
+            }
+           
+                String swap = words.get(i);
+                words.set(i, words.get(idx));
+                words.set(idx, swap);
+           
+        }
+
         return words;
     }
 
